@@ -40,9 +40,35 @@
     <!-- Site Stylesheet -->
     <link rel="stylesheet" href="{{ asset('assets/front-app/css/app.css') }}">
 </head>
-<body>
+<body class="sticky-header">
 
-    <div id="app">
+<a href="#main-wrapper" id="backto-top" class="back-to-top">
+        <i class="far fa-angle-double-up"></i>
+    </a>
+
+    <!-- Preloader Start Here -->
+    <div id="preloader"></div>
+    <!-- Preloader End Here -->
+
+    <div class="my_switcher d-none d-lg-block">
+        <ul>
+            <li title="Light Mode">
+                <a href="javascript:void(0)" class="setColor light" data-theme="light">
+                    <i class="fal fa-lightbulb-on"></i>
+                </a>
+            </li>
+            <li title="Dark Mode">
+                <a href="javascript:void(0)" class="setColor dark" data-theme="dark">
+                    <i class="fas fa-moon"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="main-wrapper" class="main-wrapper">
+
+    
+    <!-- <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -50,17 +76,16 @@
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> -->
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
                     <ul class="navbar-nav me-auto">
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    
                     <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
+                        
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -95,11 +120,11 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> -->
 
         <main class="py-4">
             @yield('content')
-        </main>
+        </main> -->
     </div>
 </body>
      <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
