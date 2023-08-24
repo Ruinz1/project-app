@@ -4,9 +4,9 @@
                 <div class="container">
                     <div class="header-navbar">
                         <div class="header-logo">
-                            <a href="index-1.html"><img class="light-version-logo" src="{{ asset('assets/front-app/media/logo-tk.png') }}" alt="logo"></a>
-                            <a href="index-1.html"><img class="dark-version-logo" src="{{ asset('assets/front-app/media/logo-tk.png') }}" alt="logo"></a>
-                            <a href="index-1.html"><img class="sticky-logo" src="{{ asset('assets/front-app/media/logo-tk.png') }}" alt="logo"></a>
+                            <a href="{{url('/')}}"><img class="light-version-logo" src="{{ asset('assets/front-app/media/logo-tk.png') }}" alt="logo"></a>
+                            <a href="{{url('/')}}"><img class="dark-version-logo" src="{{ asset('assets/front-app/media/logo-tk.png') }}" alt="logo"></a>
+                            <a href="{{url('/')}}"><img class="sticky-logo" src="{{ asset('assets/front-app/media/logo-tk.png') }}" alt="logo"></a>
                         </div>
                         <div class="header-main-nav">
                             <!-- Start Mainmanu Nav -->
@@ -14,7 +14,7 @@
                                 <div class="d-block d-lg-none">
                                     <div class="mobile-nav-header">
                                         <div class="mobile-nav-logo">
-                                            <a href="index-1.html">
+                                            <a href="{{url('/')}}">
                                                 <img class="light-mode" src="{{ asset('assets/front-app/media/logo-tk.png') }}" alt="Site Logo">
                                                 <img class="dark-mode" src="{{ asset('assets/front-app/media/logo-tk.png') }}" alt="Site Logo">
                                             </a>
@@ -23,6 +23,7 @@
                                     </div>
                                 </div>
                                 <ul class="mainmenu">
+                                    
                                     <li class="menu-item-has-children">
                                         <a href="{{url('/')}}">Profil</a>
                                         <ul class="axil-submenu">
@@ -42,10 +43,26 @@
                                     <li>
                                         <a href="{{'/sarana'}}">Sarana dan Prasarana</a>
                                     </li>
+                                   
+                                    
+                                    @guest
+                                    <a href="{{'/login'}}" class="axil-btn btn-fill-primary btn-large">Masuk</a>
+                                    @else
                                     <li>
-                                        <a href="{{'/blog'}}">Blog</a>
+                                        <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
                                     </li>
-                                    <a href="{{'/daftar'}}" class="axil-btn btn-fill-primary btn-large">Pendaftaran</a>
+                                    
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                    </li>
+                                     @endguest
+                                   
+                                    
                                 </ul>
                             </nav>
                             <!-- End Mainmanu Nav -->

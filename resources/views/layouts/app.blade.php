@@ -66,8 +66,8 @@
     </div>
 
     <div id="main-wrapper" class="main-wrapper">
+    @include('layouts.front.navbar')
 
-    
     <!-- <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -134,5 +134,23 @@
     
     <!-- Theme JS -->
     <script src="{{ asset('assets/landing-front/js/theme.bundle.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/isotope.pkgd.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/odometer.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/jquery-appear.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/slick.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/sal.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/js.cookie.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/jquery.style.switcher.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/jquery.countdown.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/tilt.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/green-audio-player.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/jquery.nav.js')}}"></script>
+
+    <!-- Site Scripts -->
+    <script src="{{ asset('assets/front-app/js/app.js')}}"></script>    
 
 </html>

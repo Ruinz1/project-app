@@ -16,11 +16,99 @@
     <!-- Styles -->
     <link id="pagestyle" href="{{ asset('assets/admin/css/soft-ui-dashboard.css?v=1.1.1') }}" rel="stylesheet" />
     <link href="{{ asset('assets/admin/css/soft-ui-dashboard.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('assets/landing-front/css/theme.bundle.css')}}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/front-app/media/logo profil.png')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/font-awesome.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/slick.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/slick-theme.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/sal.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/green-audio-player.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/odometer-theme-default.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/app.css') }}">
     
     <!-- Title -->
 <title>Daftar Peserta Baru</title>
   </head>
   <body class="g-sidenav-show  bg-gray-100">
+   <header class="header axil-header header-style-1">
+            <div id="axil-sticky-placeholder"></div>
+            <div class="axil-mainmenu">
+                <div class="container">
+                    <div class="header-navbar">
+                        <div class="header-logo">
+                            <a href="{{url('/')}}"><img class="light-version-logo" src="{{ asset('assets/front-app/media/logo-tk.png') }}" alt="logo"></a>
+                            <a href="{{url('/')}}"><img class="dark-version-logo" src="{{ asset('assets/front-app/media/logo-tk.png') }}" alt="logo"></a>
+                            <a href="{{url('/')}}"><img class="sticky-logo" src="{{ asset('assets/front-app/media/logo-tk.png') }}" alt="logo"></a>
+                        </div>
+                        <div class="header-main-nav">
+                            <!-- Start Mainmanu Nav -->
+                            <nav class="mainmenu-nav" id="mobilemenu-popup">
+                                <div class="d-block d-lg-none">
+                                    <div class="mobile-nav-header">
+                                        <div class="mobile-nav-logo">
+                                            <a href="index-1.html">
+                                                <img class="light-mode" src="{{ asset('assets/front-app/media/logo-tk.png') }}" alt="Site Logo">
+                                                <img class="dark-mode" src="{{ asset('assets/front-app/media/logo-tk.png') }}" alt="Site Logo">
+                                            </a>
+                                        </div>
+                                        <button class="mobile-menu-close" data-bs-dismiss="offcanvas"><i class="fas fa-times"></i></button>
+                                    </div>
+                                </div>
+                                <ul class="mainmenu">
+                                    
+                                    <li class="menu-item-has-children">
+                                        <a href="{{url('/')}}">Profil</a>
+                                        <ul class="axil-submenu">
+                                            <li><a href="{{url('/sejarah')}}">Sejarah</a></li>
+                                            <li><a href="{{ url('/visi') }}">Visi Misi</a></li>
+                                            <li><a href="{{ url('/struktur') }}">Struktur Organisasi</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a href="javascript:void(0);">Akademik</a>
+                                        <ul class="axil-submenu">
+                                            <li><a href="{{'/kurikulum'}}">Kurikulum</a></li>
+                                            <li><a href="{{'/jadwal'}}">Jadwal Akademik</a></li>
+                                            <li><a href="{{'/program'}}">Struktur Program</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="{{'/sarana'}}">Sarana dan Prasarana</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{'/sarana'}}">Logout</a>
+                                    </li>
+                                    
+                                    
+                                </ul>
+                            </nav>
+                            <!-- End Mainmanu Nav -->
+                        </div>
+                        <div class="header-action">
+                            <ul class="list-unstyled">
+                                <li class="my_switcher d-block d-lg-none">
+                                    <ul>
+                                        <li title="Light Mode">
+                                            <a href="javascript:void(0)" class="setColor light" data-theme="light">
+                                                <i class="fal fa-lightbulb-on"></i>
+                                            </a>
+                                        </li>
+                                        <li title="Dark Mode">
+                                            <a href="javascript:void(0)" class="setColor dark" data-theme="dark">
+                                                <i class="fas fa-moon"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <div class="container-fluid py-4">
           <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url({{ asset('assets/landing-front/img/tk-img/header-3.png')}}); background-position-y: 60%;">
@@ -1179,4 +1267,30 @@
         
       }
   </script>
+
+   <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    
+    <!-- Vendor JS -->
+    <script src="{{ asset('assets/landing-front/js/vendor.bundle.js')}}"></script>
+    
+    <!-- Theme JS -->
+    <script src="{{ asset('assets/landing-front/js/theme.bundle.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/isotope.pkgd.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/odometer.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/jquery-appear.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/slick.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/sal.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/js.cookie.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/jquery.style.switcher.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/jquery.countdown.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/tilt.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/green-audio-player.min.js')}}"></script>
+    <script src="{{ asset('assets/front-app/js/vendor/jquery.nav.js')}}"></script>
+
+    <!-- Site Scripts -->
+    <script src="{{ asset('assets/front-app/js/app.js')}}"></script>  
 </html>
