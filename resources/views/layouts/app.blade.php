@@ -27,6 +27,18 @@
     
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{ asset('assets/landing-front/css/theme.bundle.css')}}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/front-app/media/logo profil.png')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/font-awesome.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/slick.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/slick-theme.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/sal.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/green-audio-player.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/vendor/odometer-theme-default.css') }}">
+
+    <!-- Site Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('assets/front-app/css/app.css') }}">
 </head>
 <body>
 
