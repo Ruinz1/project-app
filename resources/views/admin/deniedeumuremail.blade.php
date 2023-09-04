@@ -21,7 +21,7 @@
     </table>
     <p>Mohon maaf <b>{{$details['nama']}}</b> belum Berhasil Mendaftar.</p>
     @if($details['usia'] < 4)
-    <p>Usia Belum mencukupi batas</p>
+    <p>Usia Belum mencukupi</p>
     @elseif($details['usia'] > 6)
     <p>Usia sudah melewati batas</p>
     @endif

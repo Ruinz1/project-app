@@ -589,7 +589,7 @@ class landing extends Controller
             $update->id_pendahuluan = $pendahuluan->id;
             $update->save();
 
-            return redirect('daftar-keterangan');
+            return redirect('daftar-pribadi');
         }
 
         public function updatependahuluan(Request $request, $id){

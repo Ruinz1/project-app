@@ -35,7 +35,7 @@ class LoginController extends Controller
         }
         else if(Auth::user()->id_role_as == '2') //User)
         {
-            return redirect('/daftar')->with('status', 'Welcome');
+            return redirect('/daftar-peserta')->with('status', 'Welcome');
         }
         else
         {

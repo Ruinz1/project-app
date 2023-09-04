@@ -13,7 +13,9 @@ use App\Models\keluarga;
 use App\Models\pendanaan;
 use App\Models\pendahuluan;
 use App\Models\surveitatib;
+use App\Mail\MailSendDenied;
 use Illuminate\Http\Request;
+use App\Mail\MailSendUmurDenied;
 use App\Models\informasipribadi;
 use App\Models\keteranganpribadi;
 use App\Http\Controllers\Controller;
@@ -791,7 +793,7 @@ class dashboard extends Controller
 
         $peserta->update();
 
-          $details = [
+        $details = [
             'nama' => $peserta->nama_lengkap,
             'email' => $peserta->user->email,
         ];
@@ -804,10 +806,10 @@ class dashboard extends Controller
 
     public function deniedpeserta($id, Request $request){
         $peserta = peserta::find($id);
-       
         $peserta->delete();
+        
 
-          $details = [
+        $details = [
             'nama' => $peserta->nama_lengkap,
             'email' => $peserta->user->email,
         ];
@@ -820,13 +822,13 @@ class dashboard extends Controller
 
     public function deniedumur($id, Request $request){
         $peserta = peserta::find($id);
-       
-        $peserta->delete();
+       $peserta->delete();
+        
 
           $details = [
             'nama' => $peserta->nama_lengkap,
             'usia' => $peserta->usia,
-            'email' => $peserta->user->email,
+            'email' => $peserta->user->email
         ];
          
         Mail::to($peserta->user->email)->send(new MailSendUmurDenied($details));
