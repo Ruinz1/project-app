@@ -22,8 +22,7 @@ class wali extends Model
         'alamat_kantor',
         'nomor_telepon_rumah',
         'nomor_telepon_kantor',
-        'no_whatsapp',
-        'status'
+        'no_whatsapp'
     ];
 
 

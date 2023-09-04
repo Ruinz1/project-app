@@ -2,6 +2,10 @@
 
 @section('title','Login')
 @section('content')
+
+  @if(session('message'))
+    <div class="alert alert-success">{{session('message')}}</div>
+  @endif
 <div class="container d-flex flex-column">
         <div class="row align-items-center justify-content-center gx-0 min-vh-100">
           <div class="col-8 col-md-6 col-lg-7 offset-md-1 order-md-2 mt-auto mt-md-0 pt-8 pb-4 py-md-11">

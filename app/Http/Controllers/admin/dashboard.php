@@ -116,6 +116,7 @@ class dashboard extends Controller
         'nama_peserta' => 'required',
         'agama_peserta' => 'required',
         'jenis_kelamin' => 'required',
+        'usia_peserta' => 'required',
         'tempat_lahir_peserta' => 'required',
         'tanggal_lahir_peserta' => 'required',
         'nama_panggilan' => 'required',
@@ -252,7 +253,6 @@ class dashboard extends Controller
             $ayah->nomor_telepon_rumah = $request->nomor_telepon_rumah_ayah;
             $ayah->nomor_telepon_kantor = $request->nomor_telepon_kantor_ayah;
             $ayah->no_whatsapp = $request->no_whatsapp_ayah;
-            $ayah->status = "Pending";
 
         $ayah->save();
 
@@ -269,49 +269,46 @@ class dashboard extends Controller
             $ibu->nomor_telepon_rumah = $request->nomor_telepon_rumah_ibu;
             $ibu->nomor_telepon_kantor = $request->nomor_telepon_kantor_ibu;
             $ibu->no_whatsapp = $request->no_whatsapp_ibu;
-            $ibu->status = "Pending";
 
         $ibu->save();
 
         //Keluarga (wali)
-            $wali = new wali();
-            $wali->nama_lengkap = $request->nama_wali;
-            $wali->agama = $request->agama_wali;
-            $wali->pendidikan = $request->pendidikan_wali;
-            $wali->tanggal_lahir = $request->tanggal_lahir_wali;
-            $wali->tempat_lahir = $request->tempat_lahir_wali;
-            $wali->pekerjaan = $request->pekerjaan_wali;
-            $wali->alamat = $request->alamat_wali;
-            $wali->alamat_kantor = $request->alamat_kantor_wali;
-            $wali->nomor_telepon_rumah = $request->nomor_telepon_rumah_wali;
-            $wali->nomor_telepon_kantor = $request->nomor_telepon_kantor_wali;
-            $wali->no_whatsapp = $request->no_whatsapp_wali;
+            $wali = null; // Inisialisasi $wali sebagai null
             if (
-                !$request->nama_wali &&
-                !$request->agama_wali &&
-                !$request->pendidikan_wali &&
-                !$request->tanggal_lahir_wali &&
-                !$request->tempat_lahir_wali &&
-                !$request->pekerjaan_wali &&
-                !$request->alamat_wali &&
-                !$request->alamat_kantor_wali &&
-                !$request->nomor_telepon_rumah_wali &&
-                !$request->nomor_telepon_kantor_wali &&
-                !$request->no_whatsapp_wali
+                $request->filled('nama_wali') ||
+                $request->filled('agama_wali') ||
+                $request->filled('pendidikan_wali') ||
+                $request->filled('tanggal_lahir_wali') ||
+                $request->filled('tempat_lahir_wali') ||
+                $request->filled('pekerjaan_wali') ||
+                $request->filled('alamat_wali') ||
+                $request->filled('alamat_kantor_wali') ||
+                $request->filled('nomor_telepon_rumah_wali') ||
+                $request->filled('nomor_telepon_kantor_wali') ||
+                $request->filled('no_whatsapp_wali')
             ) {
-                $wali->status = ""; // Kosongkan status jika semua data kosong
-            } else {
-                $wali->status = "Pending";
+                $wali = new Wali();
+                $wali->nama_lengkap = $request->nama_wali;
+                $wali->agama = $request->agama_wali;
+                $wali->pendidikan = $request->pendidikan_wali;
+                $wali->tanggal_lahir = $request->tanggal_lahir_wali;
+                $wali->tempat_lahir = $request->tempat_lahir_wali;
+                $wali->pekerjaan = $request->pekerjaan_wali;
+                $wali->alamat = $request->alamat_wali;
+                $wali->alamat_kantor = $request->alamat_kantor_wali;
+                $wali->nomor_telepon_rumah = $request->nomor_telepon_rumah_wali;
+                $wali->nomor_telepon_kantor = $request->nomor_telepon_kantor_wali;
+                $wali->no_whatsapp = $request->no_whatsapp_wali;
+        $wali->save();
             }
 
-            $wali->save();
-
-        //Keluarga
-            $keluarga = new keluarga();
+        // Keluarga
+            $keluarga = new Keluarga();
             $keluarga->id_ayah = $ayah->id;
             $keluarga->id_ibu = $ibu->id;
-            $keluarga->id_wali = $wali->id;
+            $keluarga->id_wali = $wali ? $wali->id : null; // Jika $wali tidak kosong, masukkan id wali, jika kosong, masukkan null
 
+            // Simpan data keluarga
         $keluarga->save();
 
         //Pendahuluan
@@ -322,7 +319,6 @@ class dashboard extends Controller
             $pendahuluan->harapan_keilmuan_agama = $request->harapan_keilmuan_agama;
             $pendahuluan->harapan_keilmuan_sosial = $request->harapan_keilmuan_sosial;
             $pendahuluan->jangka_waktu_belajar = $request->jangka_waktu_belajar;
-            $pendahuluan->status = "Pending";
 
         $pendahuluan->save();
 
@@ -344,8 +340,6 @@ class dashboard extends Controller
             $pribadi->hobi = $request->hobi;
             $pribadi->hafal_murotal = $request->hafal_murotal;
             $pribadi->berlangganan_majalah = $request->berlangganan_majalah;
-            $pribadi->status = "Pending";
-
         $pribadi->save();
 
             $informasi = new informasipribadi();
@@ -395,7 +389,6 @@ class dashboard extends Controller
             $pendanaan->pemasukan_ortu =  $request->pemasukan_ortu;
             $pendanaan->kenaikan_konsumsi =  $request->kenaikan_konsumsi;
             $pendanaan->infaq =  $request->infaq;
-            $pendanaan->status =  "Pending";
 
         $pendanaan->save();
 
@@ -809,74 +802,107 @@ class dashboard extends Controller
         return redirect('admin/data-peserta')->with('message', 'Verified Success');
     }
 
-    public function verifikasiayah($id, Request $request){
+    public function deniedpeserta($id, Request $request){
         $peserta = peserta::find($id);
-        $keluarga = keluarga::find($id);
-        if($keluarga)
-                {
-                    $ayah = ayah::find($id);
-                    $ayah->status = "Active";
-                    $ayah->update();         
-                }
-        return redirect('admin/data-ayah')->with('message', 'Verified Success');
+       
+        $peserta->delete();
+
+          $details = [
+            'nama' => $peserta->nama_lengkap,
+            'email' => $peserta->user->email,
+        ];
+         
+        Mail::to($peserta->user->email)->send(new MailSendDenied($details));
+
+        
+        return redirect('admin/data-peserta')->with('message', 'Denied Success');
     }
 
-    public function verifikasiibu($id, Request $request){
+    public function deniedumur($id, Request $request){
         $peserta = peserta::find($id);
-        $keluarga = keluarga::find($id);
-        if($keluarga)
-                {
-                    $ibu = ibu::find($id);
-                    $ibu->status = "Active";
-                    $ibu->update();         
-                }
+       
+        $peserta->delete();
+
+          $details = [
+            'nama' => $peserta->nama_lengkap,
+            'usia' => $peserta->usia,
+            'email' => $peserta->user->email,
+        ];
+         
+        Mail::to($peserta->user->email)->send(new MailSendUmurDenied($details));
+
         
-        return redirect('admin/data-ibu')->with('message', 'Verified Success');
+        return redirect('admin/data-peserta')->with('message', 'Denied Success');
     }
 
-    public function verifikasiwali($id, Request $request){
-        $peserta = peserta::find($id);
-        $keluarga = keluarga::find($id);
-        if($keluarga)
-                {
-                    $wali = wali::find($id);
-                    $wali->status = "Active";
-                    $wali->update();         
-                }
-        return redirect('admin/data-wali')->with('message', 'Verified Success');
-    }
+    // public function verifikasiayah($id, Request $request){
+    //     $peserta = peserta::find($id);
+    //     $keluarga = keluarga::find($id);
+    //     if($keluarga)
+    //             {
+    //                 $ayah = ayah::find($id);
+    //                 $ayah->status = "Active";
+    //                 $ayah->update();         
+    //             }
+    //     return redirect('admin/data-ayah')->with('message', 'Verified Success');
+    // }
 
-    public function verifikasipendahuluan($id, Request $request){
+    // public function verifikasiibu($id, Request $request){
+    //     $peserta = peserta::find($id);
+    //     $keluarga = keluarga::find($id);
+    //     if($keluarga)
+    //             {
+    //                 $ibu = ibu::find($id);
+    //                 $ibu->status = "Active";
+    //                 $ibu->update();         
+    //             }
         
-                    $pendahuluan = pendahuluan::find($id);
-                    $pendahuluan->status = "Active";
-                    $pendahuluan->update();         
-        return redirect('admin/data-pendahuluan')->with('message', 'Verified Success');
-    }
+    //     return redirect('admin/data-ibu')->with('message', 'Verified Success');
+    // }
 
-    public function verifikasipribadi($id, Request $request){
-        
-                    $pribadi = keteranganpribadi::find($id);
-                    $pribadi->status = "Active";
-                    $pribadi->update();         
-        return redirect('admin/data-pribadi')->with('message', 'Verified Success');
-    }
+    // public function verifikasiwali($id, Request $request){
+    //     $peserta = peserta::find($id);
+    //     $keluarga = keluarga::find($id);
+    //     if($keluarga)
+    //             {
+    //                 $wali = wali::find($id);
+    //                 $wali->status = "Active";
+    //                 $wali->update();         
+    //             }
+    //     return redirect('admin/data-wali')->with('message', 'Verified Success');
+    // }
 
-    public function verifikasisurvei($id, Request $request){
+    // public function verifikasipendahuluan($id, Request $request){
         
-                    $pribadi = surveitatib::find($id);
-                    $pribadi->status = "Active";
-                    $pribadi->update();         
-        return redirect('admin/data-survei')->with('message', 'Verified Success');
-    }
+    //                 $pendahuluan = pendahuluan::find($id);
+    //                 $pendahuluan->status = "Active";
+    //                 $pendahuluan->update();         
+    //     return redirect('admin/data-pendahuluan')->with('message', 'Verified Success');
+    // }
 
-    public function verifikasipendanaan($id, Request $request){
+    // public function verifikasipribadi($id, Request $request){
         
-                    $pribadi = pendanaan::find($id);
-                    $pribadi->status = "Active";
-                    $pribadi->update();         
-        return redirect('admin/data-pendanaan')->with('message', 'Verified Success');
-    }
+    //                 $pribadi = keteranganpribadi::find($id);
+    //                 $pribadi->status = "Active";
+    //                 $pribadi->update();         
+    //     return redirect('admin/data-pribadi')->with('message', 'Verified Success');
+    // }
+
+    // public function verifikasisurvei($id, Request $request){
+        
+    //                 $pribadi = surveitatib::find($id);
+    //                 $pribadi->status = "Active";
+    //                 $pribadi->update();         
+    //     return redirect('admin/data-survei')->with('message', 'Verified Success');
+    // }
+
+    // public function verifikasipendanaan($id, Request $request){
+        
+    //                 $pribadi = pendanaan::find($id);
+    //                 $pribadi->status = "Active";
+    //                 $pribadi->update();         
+    //     return redirect('admin/data-pendanaan')->with('message', 'Verified Success');
+    // }
 
     
 

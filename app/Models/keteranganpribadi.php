@@ -29,8 +29,7 @@ class keteranganpribadi extends Model
         'doa_harian_hafal',
         'hobi',
         'hafal_murotal',
-        'berlangganan_majalah',
-        'status'
+        'berlangganan_majalah'
     ];
 
     public function peserta()

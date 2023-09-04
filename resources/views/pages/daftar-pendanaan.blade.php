@@ -144,21 +144,49 @@
                             </a>
                             <a href="{{ url('daftar-keluarga') }}" class="multisteps-form__progress-btn js-active" type="button" title="Media"> Keterangan Orangtua/Wali</a>
                             <a href="{{ url('daftar-pendahuluan') }}" class="multisteps-form__progress-btn js-active" type="button" title="Socials"> Pendahuluan</a>
-                            <a href="#" class="multisteps-form__progress-btn js-active" type="button" title="Pricing"> Keterangan Pribadi Murid</button>
-                            <a href="#" class="multisteps-form__progress-btn" type="button" title="Pricing">Survei Tata Tertib</a>
-                            <a href="#" class="multisteps-form__progress-btn" type="button" title="Pricing">Lain-lain</a>
-                            <a href="#" class="multisteps-form__progress-btn" type="button" title="Pricing"> Pendanaan</a>
+                            <a href="{{ url('daftar-pribadi') }}" class="multisteps-form__progress-btn js-active" type="button" title="Pricing"> Keterangan Pribadi Murid</button>
+                            <a href="{{ url('daftar-survei') }}" class="multisteps-form__progress-btn js-active" type="button" title="Pricing">Survei Tata Tertib</a>
+                            <a href="{{ url('daftar-lain') }}" class="multisteps-form__progress-btn js-active" type="button" title="Pricing">Lain-lain</a>
+                            <a href="{{ url('daftar-pendanaan') }}" class="multisteps-form__progress-btn js-active" type="button" title="Pricing"> Pendanaan</a>
                             </div>
                         </div>
                         </div>
                         <!--form panels-->
                         <div class="row">
                         <div class="col-12 col-lg-10 m-auto">
-                            <form class="multisteps-form__form mb-8" method="POST" action="{{ url('daftar') }}">
+                            <form class="multisteps-form__form mb-8" method="POST" action="{{ url('daftar-pendanaan') }}">
                   
                                 @csrf
                                  
-                                
+                                <div class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
+                                    <h5 class="font-weight-bolder">Pendanaan </h5>
+                                    <div class="multisteps-form__content">
+                                      <div class="row mt-3">
+                                        <div class="col-sm-6 mt-sm-0 mt-4">
+                                          <label class="mt-2">Pemasukan rata-rata Ayah dan Ibu perbulan</label>
+                                          <select class="form-control" name="pemasukan_ortu">
+                                            <option selected="selected">Pilih salah satu</option>
+                                            <option value="< Rp. 1.000.000,00"> < Rp. 1.000.000,00 </option>
+                                            <option value="Rp. 1.000.000,00 - Rp. 3.000.000,00"> Rp. 1.000.000,00 - Rp. 3.000.000,00 </option>
+                                            <option value="> Rp. 3.000.000,00"> > Rp. 3.000.000,00 </option>
+                                          </select>
+                                        </div>
+                                        <div class="row mt-3">
+                                        <div class="col-sm-6 mt-sm-0 mt-4">
+                                          <label for="">Apabila ditengah perjalanan kegiatan belajar mengajar (KBM) terjadi kenaikan harga bahan pokok yang berimbas pada biaya operasional terutama konsumsi, maka Tindakan apa yang harus dilakukan agar menu makanan yang diberikan pada anak-anak tetap stabil (berikan alasan) </label>
+                                          <textarea class="multisteps-form__input form-control" name="kenaikan_konsumsi" rows="5" cols="5" > </textarea>
+                                        </div>  
+                                        <div class="col-12 col-sm-6 mt-4 mt-sm-4">
+                                          <label for="">Untuk mengatasi masalah kenaikan harga bahan pokok, bagaimana apabila orang tua/ wali murid yang mempunya kelebihan rezeki untuk menyisihkan hartanya/ berinfaq secara sukarela?(berikan alasan)</label>
+                                          <textarea class="multisteps-form__input form-control" name="infaq" rows="5" cols="5" > </textarea>
+                                        </div>
+                                    </div>
+                                      <div class="button-row d-flex mt-4">
+                                        <a href="{{ url('daftar-lain') }}" class="btn bg-gradient-secondary mb-0 js-btn-prev" type="button" title="Prev">Prev</a>
+                                        <button class="btn bg-gradient-dark ms-auto mb-0" type="submit" title="Send">Send</button>
+                                      </div>
+                                    </div>
+                                  </div>
                                   
                                 </form>
                         </div>

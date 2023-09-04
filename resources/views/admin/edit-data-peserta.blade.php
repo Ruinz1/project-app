@@ -54,8 +54,8 @@
                           </select>
                         </div>
                           <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                            <label>Tempat Lahir</label>
-                            <input class="multisteps-form__input form-control" value="{{ $peserta->tempat_lahir }}" name="tempat_lahir_peserta" type="text" placeholder="Palu, 7 Juli 2013"  />
+                            <label>Usia</label>
+                            <input class="multisteps-form__input form-control" value="{{ $peserta->usia }}" name="usia_peserta" type="text"  />
                           </div>
                       </div>
                       <div class="row mt-3">
@@ -64,8 +64,12 @@
                             <input class="multisteps-form__input form-control" value="{{ $peserta->tanggal_lahir }}" name="tanggal_lahir_peserta" type="date" placeholder="Palu, 7 Juli 2013"  />
                           </div>
                           <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                            <label>Tempat Lahir</label>
+                            <input class="multisteps-form__input form-control" value="{{ $peserta->tempat_lahir }}" name="tempat_lahir_peserta" type="text" placeholder="Palu, 7 Juli 2013"  />
+                          </div>
+                          <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                             <label class="mt-2">Agama</label>
-                            <input class="multisteps-form__input form-control" value="{{ $peserta->agama }}" name="agama_peserta" type="text" placeholder="eg. Off-White"  />
+                            <input class="multisteps-form__input form-control" disabled value="{{ $peserta->agama }}" name="agama_peserta" type="text" placeholder="eg. Off-White"  />
                         </div>
                       </div>
                       <div class="row mt-3">
@@ -146,7 +150,15 @@
                         </div>
                           <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                             <label>Pekerjaan</label>
-                            <input class="multisteps-form__input form-control" value="{{ $peserta->keluarga->ayah->pekerjaan }}" name="pekerjaan_ayah" type="text" placeholder="eg. Off-White"  />
+                            <?php 
+                                            $pekerjaan = ['Petani dan Buruh Tani','Pedagang','Nelayan','Buruh Pabrik','PNS (Pegawai Negeri Sipil)','Guru/Dosen',
+                                            'Sopir dan Pengemudi','Penjahit','Karyawan Swasta','Tukang Bangunan','Karyawan Perbankan','Montir','Dokter','Pegawai Toko',
+                                            'Penjual Makanan','Peternak','Pekerja Konstruksi','Perawat','Polisi dan Anggota TNI','Tidak bekerja','Lainnya']
+                                            
+                                            ?>
+                            @foreach($kategori as $kat)
+                            <option value="{{$kat}}" {{ $peserta->jenis_kelamin == $kat ? 'selected':'' }}>{{$kat}}</option>
+                            @endforeach
                           </div>
                       </div>
                       <div class="row mt-3">

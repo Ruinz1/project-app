@@ -144,21 +144,53 @@
                             </a>
                             <a href="{{ url('daftar-keluarga') }}" class="multisteps-form__progress-btn js-active" type="button" title="Media"> Keterangan Orangtua/Wali</a>
                             <a href="{{ url('daftar-pendahuluan') }}" class="multisteps-form__progress-btn js-active" type="button" title="Socials"> Pendahuluan</a>
-                            <a href="#" class="multisteps-form__progress-btn js-active" type="button" title="Pricing"> Keterangan Pribadi Murid</button>
-                            <a href="#" class="multisteps-form__progress-btn" type="button" title="Pricing">Survei Tata Tertib</a>
-                            <a href="#" class="multisteps-form__progress-btn" type="button" title="Pricing">Lain-lain</a>
-                            <a href="#" class="multisteps-form__progress-btn" type="button" title="Pricing"> Pendanaan</a>
+                            <a href="{{ url('daftar-pribadi') }}" class="multisteps-form__progress-btn js-active" type="button" title="Pricing"> Keterangan Pribadi Murid</button>
+                            <a href="{{ url('daftar-survei') }}" class="multisteps-form__progress-btn js-active" type="button" title="Pricing">Survei Tata Tertib</a>
+                            <a href="{{ url('daftar-lain') }}" class="multisteps-form__progress-btn js-active" type="button" title="Pricing">Lain-lain</a>
+                            <a href="{{ url('daftar-pendanaan') }}" class="multisteps-form__progress-btn" type="button" title="Pricing"> Pendanaan</a>
                             </div>
                         </div>
                         </div>
                         <!--form panels-->
                         <div class="row">
                         <div class="col-12 col-lg-10 m-auto">
-                            <form class="multisteps-form__form mb-8" method="POST" action="{{ url('daftar') }}">
+                            <form class="multisteps-form__form mb-8" method="POST" action="{{ url('daftar-lain') }}">
                   
                                 @csrf
                                  
-                                
+                                <div class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
+                                    <h5 class="font-weight-bolder">Lain-lain</h5>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-6 mt-sm-0 mt-4">
+                                          <label for="">Setuju atau tidak setuju,menghadiri pertemuan wali murid 2 bulan sekali (berikan alasan) </label>
+                                          <textarea class="multisteps-form__input form-control" name="kehadiran_dua_bulan" rows="5" cols="5" > </textarea>
+                                        </div>
+                                        <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                                          <label for="">Setuju atau tidak setuju, p2.	Mengontrol perkembangan putra-putri baik secara langsung maupun tidak langsung (lewat buku komunikasi) (berikan alasan)</label>
+                                          <textarea class="multisteps-form__input form-control" name="kontrol_pengembangan" rows="5" cols="5" > </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-6 mt-sm-0 mt-4">
+                                          <label for="">Setuju atau tidak setuju,demi kesehatan bersama, selama berada di lingkungan TKIT AL-Qolam diusahakan tidak merokok (berikan alasan) </label>
+                                          <textarea class="multisteps-form__input form-control" name="tatib_merokok" rows="5" cols="5" > </textarea>
+                                        </div>  
+                                        <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                                          <label for="">Setuju atau tidak setuju, kami pengelola TKIT AL-Qolam tidak dapat bekerja sama dalam pelaksanaan acara-acara di luar sekolah yang kurang islami (berikan alasan)</label>
+                                          <textarea class="multisteps-form__input form-control" name="kerja_sama" rows="5" cols="5" > </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                      <div class="col-sm-6 mt-sm-0 mt-4">
+                                          <label for="">Setuju atau tidak setuju, kami mengelola TKIT AL-Qolam akan menjadwalkan atau menggilir jadwal pemberian gizi sehat kepada wali murid sebagai bentuk pemberian infak dan shodaqoh(berikan alasan) </label>
+                                          <textarea class="multisteps-form__input form-control" name="gizi_sehat" rows="5" cols="5" > </textarea>
+                                      </div>  
+                                      <div class="button-row d-flex mt-4">
+                                        <a href="{{ url('daftar-survei') }}" class="btn bg-gradient-secondary mb-0 js-btn-prev" type="button" title="Prev">Prev</a>
+                                        <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit" title="Next">Next</button>
+                                      </div>
+                                    </div>
+                                  </div>
                                   
                                 </form>
                         </div>

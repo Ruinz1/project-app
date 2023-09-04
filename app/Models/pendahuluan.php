@@ -17,8 +17,7 @@ class pendahuluan extends Model
         'harapan_keilmuan',
         'harapan_keilmuan_agama',
         'harapan_keilmuan_sosial',
-        'jangka_waktu_belajar',
-        'status'
+        'jangka_waktu_belajar'
     ];
 
    public function peserta()

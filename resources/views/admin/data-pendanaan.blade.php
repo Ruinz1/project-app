@@ -18,8 +18,6 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pemasukan Orang Tua</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tindakan apa yang harus dilakukan agar menu makanan yang diberikan pada anak-anak tetap stabil</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Alasan untuk mengatasi masalah kenaikan harga bahan pokok</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -30,13 +28,6 @@
                     <td class="text-sm font-weight-normal">{{ $item->pendanaan->kenaikan_konsumsi }}</td>
                     <td class="text-sm font-weight-normal">{{ $item->pendanaan->infaq }}</td>
                     <td class="text-sm font-weight-normal">{{ $item->pendanaan->status }}</td>
-                    <td>
-                        @if($item->pendanaan->status == "Pending")
-                        <a href="{{ url('admin/verifikasi-pendanaan/'.$item->pendanaan->id) }}" class="btn btn-info btn-sm">Verifikasi</a>
-                        @else
-                        
-                        @endif
-                    </td>
                   </tr>
                 @endforeach
                 </tbody>

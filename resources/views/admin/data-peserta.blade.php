@@ -5,6 +5,7 @@
  @if(session('message'))
     <div class="alert alert-success">{{session('message')}}</div>
   @endif
+  
  <div class="row mt-4">
         <div class="col-12">
           <div class="card">
@@ -20,6 +21,7 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama Lengkap</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Agama</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jenis Kelamin</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Usia</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tempat & Tanggal Lahir</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Alamat</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama Panggilan</th>
@@ -49,6 +51,7 @@
                     <td class="text-sm font-weight-normal">{{ $item->nama_lengkap }}</td>
                     <td class="text-sm font-weight-normal">{{ $item->agama }}</td>
                     <td class="text-sm font-weight-normal">{{ $item->jenis_kelamin }}</td>
+                    <td class="text-sm font-weight-normal">{{ $item->usia }}</td>
                     <td class="text-sm font-weight-normal">{{ $item->tempat_lahir }} , {{ \Carbon\Carbon::parse($item->tanggal_lahir)->isoFormat('Do MMMM YYYY')}}</td>
                     <td class="text-sm font-weight-normal">{{ $item->alamat }}</td>
                     <td class="text-sm font-weight-normal">{{ $item->nama_panggilan }}</td>
@@ -68,17 +71,14 @@
                     <td class="text-sm font-weight-normal">{{ $item->kelompok }}</td>
                     <td class="text-sm font-weight-normal">{{ $item->status_all }}</td>
                     <td class="text-sm font-weight-normal">
-                      @if($item->keluarga->ayah->status == "Active" && $item->keluarga->ibu->status == "Active" 
-                      && $item->pendahuluan->status == "Active" && $item->pribadi->status == "Active"
-                      && $item->survei->status == "Active" && $item->pendanaan->status == "Active" OR 
-                      $item->keluarga->ayah->status == "Active" && $item->keluarga->ibu->status == "Active" && $item->keluarga->wali->status == "Active"  
-                      && $item->pendahuluan->status == "Active" && $item->pribadi->status == "Active"
-                      && $item->survei->status == "Active" && $item->pendanaan->status == "Active")
-                        @if($item->status_all == "Pending")
+                        @if($item->status_all == "Pending" && $item->usia >= 4 && $item->usia <= 6)
                         <a href="{{ url('admin/verifikasi-peserta/'.$item->id) }}" class="btn btn-info btn-sm">Verifikasi</a>
+                        <a href="{{ url('admin/denied-peserta/'.$item->id) }}" class="btn btn-danger btn-sm">Tolak</a>
+                        @elseif($item->status_all == "Pending" && $item->usia <= 4 || $item->status_all == "Pending" && $item->usia >= 6)
+                        <a href="{{ url('admin/denied-umur-peserta/'.$item->id) }}" class="btn btn-danger btn-sm">Tolak</a>
+                        @elseif($item->status_all == "Active")
+                        <a href="{{ url('admin/delete-peserta/'.$item->id) }}" class="btn btn-danger btn-sm">Hapus</a>
                         @endif
-                      @endif
-                      <a href="{{ url('admin/delete-peserta/'.$item->id) }}" class="btn btn-danger btn-sm">Hapus</a>
                       <a href="{{ url('admin/edit-peserta/'.$item->id) }}" class="btn btn-warning btn-sm">Edit</a>
                     </td>
                   </tr>

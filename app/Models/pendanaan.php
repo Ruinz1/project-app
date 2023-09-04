@@ -17,8 +17,7 @@ class pendanaan extends Model
     protected $fillable = [
         'pemasukan_ortu',
         'kenaikan_konsumsi',
-        'infaq',
-        'status'
+        'infaq'
     ];
 
     public function peserta()

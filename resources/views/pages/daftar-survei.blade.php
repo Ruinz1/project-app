@@ -144,21 +144,43 @@
                             </a>
                             <a href="{{ url('daftar-keluarga') }}" class="multisteps-form__progress-btn js-active" type="button" title="Media"> Keterangan Orangtua/Wali</a>
                             <a href="{{ url('daftar-pendahuluan') }}" class="multisteps-form__progress-btn js-active" type="button" title="Socials"> Pendahuluan</a>
-                            <a href="#" class="multisteps-form__progress-btn js-active" type="button" title="Pricing"> Keterangan Pribadi Murid</button>
-                            <a href="#" class="multisteps-form__progress-btn" type="button" title="Pricing">Survei Tata Tertib</a>
-                            <a href="#" class="multisteps-form__progress-btn" type="button" title="Pricing">Lain-lain</a>
-                            <a href="#" class="multisteps-form__progress-btn" type="button" title="Pricing"> Pendanaan</a>
+                            <a href="{{ url('daftar-pribadi') }}" class="multisteps-form__progress-btn js-active" type="button" title="Pricing"> Keterangan Pribadi Murid</button>
+                            <a href="{{ url('daftar-survei') }}" class="multisteps-form__progress-btn js-active" type="button" title="Pricing">Survei Tata Tertib</a>
+                            <a href="{{ url('daftar-lain') }}" class="multisteps-form__progress-btn " type="button" title="Pricing">Lain-lain</a>
+                            <a href="{{ url('daftar-pendanaan') }}" class="multisteps-form__progress-btn" type="button" title="Pricing"> Pendanaan</a>
                             </div>
                         </div>
                         </div>
                         <!--form panels-->
                         <div class="row">
                         <div class="col-12 col-lg-10 m-auto">
-                            <form class="multisteps-form__form mb-8" method="POST" action="{{ url('daftar') }}">
+                            <form class="multisteps-form__form mb-8" method="POST" action="{{ url('daftar-survei') }}">
                   
                                 @csrf
                                  
-                                
+                                <div class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
+                                    <h5 class="font-weight-bolder">Mengenal tata tertib peserta didik dan dan orangtua/wali TKIT Al-Qolam</h5>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-6 mt-sm-0 mt-4">
+                                          <label for="">Setuju atau tidak setuju, peserta didik tidak boleh ditunggu orrang tua/wali/baby sitster kecuali awal masuk maksimal 2 pekan (berikan alasan) </label>
+                                          <textarea class="multisteps-form__input form-control" name="tidak_boleh_ditunggu" rows="5" cols="5" > </textarea>
+                                        </div>
+                                          <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                                          <label for="">Setuju atau tidak setuju, peserta didik dilarang memakai perhiasan kecuali anting atau giwang (Berikan alasan)</label>
+                                          <textarea class="multisteps-form__input form-control" name="larangan_berpakaian_perhiasan" rows="5" cols="5" > </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-6 mt-sm-0 mt-4">
+                                          <label for="">Setuju atau tidak setuju,orang tua wajib berpakaian Islami Ketika berada di lingkungan TKIT AL-Qolam (bagi ibu/penjemput putri di usahakan memakai jilbab). (berikan alasan) </label>
+                                          <textarea class="multisteps-form__input form-control" name="berpakaian_islami" rows="5" cols="5" > </textarea>
+                                    </div>
+                                    <div class="button-row d-flex mt-4">
+                                        <a href="{{ url('daftar-pribadi') }}" class="btn bg-gradient-secondary mb-0 js-btn-prev" type="button" title="Prev">Prev</a>
+                                        <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit" title="Next">Next</button>
+                                      </div>
+                                    </div>
+                                  </div>
                                   
                                 </form>
                         </div>

@@ -157,8 +157,8 @@ ul.list-style li::marker,
 }
 
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
@@ -170,13 +170,13 @@ ul.list-style li::marker,
 }
 
 .row {
-    margin-left: -15px;
-    margin-right: -15px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .row > [class*="col"] {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .row.g-0 {
@@ -2783,9 +2783,11 @@ Pagination
         padding: 160px 0 0;
     }
 }
+
 .banner-content{
-    margin-left: 40px;
+    margin-left: 30px;
 }
+
 
 @media only screen and (max-width: 767px) {
     .banner {
@@ -7041,6 +7043,7 @@ body.op-modal-open {
     display: block; width: 240px;
 }
 
+
 .axil-header .header-navbar .header-logo .dark-version-logo {
     display: none;
 }
@@ -7051,7 +7054,7 @@ body.op-modal-open {
 
 @media only screen and (max-width: 991px) {
     .axil-header .header-navbar .header-logo img {
-        width: 150px;
+        width: 550px;
     }
 }
 

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,13 +22,44 @@ Route::get('/formulir', function () {
     return view('pages/formulir');
 });
 
-\Illuminate\Support\Facades\Auth::routes();
+
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('visi-misi', [App\Http\Controllers\landing::class, 'visimisi']);
+Route::get('sejarah', [App\Http\Controllers\landing::class, 'sejarah']);
+Route::get('sarana', [App\Http\Controllers\landing::class, 'sarana']);
+Route::get('blog', [App\Http\Controllers\landing::class, 'blog']);
 
 Route::prefix('/')->middleware(['auth'])->group(function () {
-    Route::get('daftar', [App\Http\Controllers\landing::class, 'daftar'])->name('landing.daftar');
-    Route::post('daftar', [App\Http\Controllers\landing::class, 'create']);
+    Route::get('daftar-peserta', [App\Http\Controllers\landing::class, 'daftarpeserta'])->name('landing.daftar');
+    Route::post('daftar-peserta', [App\Http\Controllers\landing::class, 'store']);
+    Route::put('update-peserta/{id}', [App\Http\Controllers\landing::class, 'updatepeserta']);
+
+    Route::get('daftar-keluarga', [App\Http\Controllers\landing::class, 'daftarkeluarga']);;
+    Route::post('daftar-keluarga', [App\Http\Controllers\landing::class, 'storekeluarga']);;
+    Route::put('update-keluarga/{id}', [App\Http\Controllers\landing::class, 'updatekeluarga']);;
+
+    Route::get('daftar-pendahuluan', [App\Http\Controllers\landing::class, 'daftarpendahuluan']);;
+    Route::post('daftar-pendahuluan', [App\Http\Controllers\landing::class, 'storependahuluan']);;
+    Route::put('update-pendahuluan/{id}', [App\Http\Controllers\landing::class, 'updatependahuluan']);;
+
+    Route::get('daftar-pribadi', [App\Http\Controllers\landing::class, 'daftarpribadi']);;
+    Route::post('daftar-pribadi', [App\Http\Controllers\landing::class, 'storepribadi']);;
+    Route::put('update-pribadi/{id}', [App\Http\Controllers\landing::class, 'updatepribadi']);;
+
+    Route::get('daftar-survei', [App\Http\Controllers\landing::class, 'daftarsurvei']);;
+    Route::post('daftar-survei', [App\Http\Controllers\landing::class, 'storesurvei']);;
+    Route::put('update-survei/{id}', [App\Http\Controllers\landing::class, 'updatesurvei']);;
+
+    Route::get('daftar-lain', [App\Http\Controllers\landing::class, 'daftarlain']);;
+    Route::post('daftar-lain', [App\Http\Controllers\landing::class, 'storelain']);;
+    Route::put('update-lain/{id}', [App\Http\Controllers\landing::class, 'updatelain']);;
+
+    Route::get('daftar-pendanaan', [App\Http\Controllers\landing::class, 'daftarpendanaan']);;
+    Route::post('daftar-pendanaan', [App\Http\Controllers\landing::class, 'storependanaan']);;
+    Route::put('update-pendanaan/{id}', [App\Http\Controllers\landing::class, 'updatependanaan']);;
+
 });
 
 
@@ -47,6 +79,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     Route::put('update-peserta/{id}', [App\Http\Controllers\admin\dashboard::class,'update']);
 
     Route::get('verifikasi-peserta/{id}', [App\Http\Controllers\admin\dashboard::class,'verifikasipeserta']);
+    Route::get('denied-peserta/{id}', [App\Http\Controllers\admin\dashboard::class,'deniedpeserta']);
+    Route::get('denied-umur-peserta/{id}', [App\Http\Controllers\admin\dashboard::class,'deniedumur']);
     
     Route::get('data-ayah', [App\Http\Controllers\admin\dashboard::class,'ayah']);
     Route::get('verifikasi-ayah/{id}', [App\Http\Controllers\admin\dashboard::class,'verifikasiayah']);

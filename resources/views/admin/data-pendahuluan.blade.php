@@ -20,8 +20,7 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Harapan bidang Keilmuann Agama</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Harapan bidang Keilmuann Sosial</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangka Waktu Belajar di TKIT AL-Qolam</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+               
                   </tr>
                 </thead>
                 <tbody>
@@ -33,14 +32,6 @@
                     <td class="text-sm font-weight-normal">{{ $item->pendahuluan->harapan_keilmuan_agama }}</td>
                     <td class="text-sm font-weight-normal">{{ $item->pendahuluan->harapan_keilmuan_sosial }}</td>
                     <td class="text-sm font-weight-normal">{{ $item->pendahuluan->jangka_waktu_belajar }}</td>
-                    <td class="text-sm font-weight-normal">{{ $item->pendahuluan->status }}</td>
-                    <td>
-                        @if($item->pendahuluan->status == "Pending")
-                        <a href="{{ url('admin/verifikasi-pendahuluan/'.$item->pendahuluan->id) }}" class="btn btn-info btn-sm">Verifikasi</a>
-                        @else
-                        
-                        @endif
-                    </td>
                   </tr>
                 @endforeach
                 </tbody>

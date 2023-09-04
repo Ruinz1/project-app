@@ -21,8 +21,7 @@ class surveitatib extends Model
         'tatib_merokok',
         'gizi_sehat',
         'kontrol_pengembangan',
-        'kerja_sama',
-        'status'
+        'kerja_sama'
     ];
 
    public function peserta()

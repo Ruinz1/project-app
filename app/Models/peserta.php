@@ -25,6 +25,7 @@ class peserta extends Model
         'jenis_kelamin',
         'tempat_lahir',
         'tanggal_lahir',
+        'usia',
         'nama_panggilan',
         'berat_badan',
         'tinggi_badan',

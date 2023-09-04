@@ -23,8 +23,6 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pengelola TKIT AL-Qolam akan menjadwalkan atau menggilir jadwal pemberian gizi sehat kepada wali murid sebagai bentuk pemberian infak dan shodaqohk</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mengontrol perkembangan putra-putri baik secara langsung maupun tidak langsung</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pengelola TKIT AL-Qolam tidak dapat bekerja sama dalam pelaksanaan acara-acara di luar sekolah yang kurang islami</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -39,14 +37,6 @@
                     <td class="text-sm font-weight-normal">{{ $item->survei->gizi_sehat}}</td>
                     <td class="text-sm font-weight-normal">{{ $item->survei->kontrol_pengembangan}}</td>
                     <td class="text-sm font-weight-normal">{{ $item->survei->kerja_sama}}</td>
-                    <td class="text-sm font-weight-normal">{{ $item->survei->status }}</td>
-                    <td>
-                        @if($item->survei->status == "Pending")
-                        <a href="{{ url('admin/verifikasi-survei/'.$item->survei->id) }}" class="btn btn-info btn-sm">Verifikasi</a>
-                        @else
-                        
-                        @endif
-                    </td>
                   </tr>
                 @endforeach
                 </tbody>

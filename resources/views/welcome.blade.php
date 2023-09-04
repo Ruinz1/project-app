@@ -1,6 +1,5 @@
-@extends('layouts.app')
-
 @section('title', 'TKTI AL-QOLAM')
+@extends('layouts.app')
 @section('content')
         <!--=====================================-->
         <!--=        Banner Area Start         =-->
@@ -12,11 +11,11 @@
                         <div class="banner-content" data-sal="slide-up" data-sal-duration="1000" data-sal-delay="100">
                             <h1 class="title">TK Islam yang Unggul dan Berakhlak Mulia</h1>
                             <span class="subtitle">Taman Kanak-Kanak Islam Terpadu (TKIT) Al Qolam adalah Lembaga Pendidikan anak usia dini yang berada pada jalur formal sebagai lembaga kepedulian dari sekelompok orang terhadap pentingnya nilai pendidikan bagi anak usia 4-6 tahun</span>
-                            <a href="{{'/daftar'}}" class="axil-btn btn-fill-primary btn-large">Pendaftaran</a>
+                            <a href="{{'/daftar-peserta'}}" class="axil-btn btn-fill-primary btn-large">Pendaftaran</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="banner-thumbnail">
+                        <div class="banner-content">
                             <div class="large-thumb" data-sal="zoom-in" data-sal-duration="800" data-sal-delay="300">
                                 <img src="{{ asset('assets/front-app/media/banner/coba 2.png')}}" alt="Laptop">
                             </div>
@@ -24,11 +23,7 @@
                     </div>
                 </div>
             </div>
-            <ul class="list-unstyled shape-group-21">
-                <li class="shape shape-1" data-sal="slide-down" data-sal-duration="500" data-sal-delay="100">
-                    <img src="{{ asset('assets/front-app/media/others/bubble-39.png')}}" alt="Bubble">
-                </li>
-             
+            <ul class="list-unstyled shape-group-21">             
                 <li class="shape shape-3" data-sal="slide-left" data-sal-duration="500" data-sal-delay="700">
                     <img src="{{ asset('assets/front-app/media/others/bubble-14.png')}}" alt="Bubble">
                 </li>
@@ -56,7 +51,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6" data-sal="slide-up" data-sal-duration="800">
-                        <div class="about-us">
+                        <div class="banner-content">
                             <div class="section-heading heading-left mb-0">
                                 <span class="subtitle">Tentang TK AL-Qolam</span>
                                 <h2 class="title mb--90"> TKIT Al Qolam telah memiliki Surat Izin Operasional pada bulan Mei 2011 dari Dinas Pendidikan Pemuda dan Olahraga Kabupaten Sigi </p>
@@ -80,12 +75,12 @@
         <!--=====================================-->
         <!--=        Project Area Start         =-->
         <!--=====================================-->
-        <section class="section section-padding-2">
+        <section class="section section-padding-equal bg-color-light">
             <div class="container">
-                <div class="section-heading heading-left mb--40">
-                    <h2 class="title">Tujuan  <br> TKIT AL-Qolam</h2>
+                <div class="section-heading heading-left mb--20">
+                    <h2 class="title">Tujuan <br> TKIT AL-Qolam</h2>
                 </div>
-                    <div class="row row-35 isotope-list">
+                    <div class="row row-25 isotope-list">
                         <div class="col-md-6 project branding">
                             <div class="project-grid">
                                 <div class="thumbnail">
@@ -124,12 +119,14 @@
         <!--=====================================-->
         <!--=        Testimonial Area Start      =-->
         <!--=====================================-->
-        <section class="section section-padding-equal bg-color-light">
+        <section class="banner-content">
             <div class="container">
-                <div class="section-heading heading-left">
-                    <span class="subtitle">Testimonial</span>
-                    <h2 class="title">Apa kata orangtua murid?</h2>
-                    <p>Testimonial ini berisi cerita baik dari orangtua murid terhadap perkembangan anak-anaknya setelah bersekolah di TKIT AL-Qolam</p>
+                <div class="row">
+                    <div class="section-heading heading-left">
+                        <span class="subtitle">Testimonial</span>
+                        <h2 class="title">Apa kata orangtua murid?</h2>
+                        <p>Testimonial ini berisi cerita baik dari orangtua murid terhadap perkembangan anak-anaknya setelah bersekolah di TKIT AL-Qolam</p>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-4" data-sal="slide-up" data-sal-duration="1000" data-sal-delay="100">
@@ -214,63 +211,6 @@
             </div>
         </footer>
 
-
-
-        <!--=====================================-->
-        <!--=       Offcanvas Menu Area       	=-->
-        <!--=====================================-->
-        <div class="offcanvas offcanvas-end header-offcanvasmenu" tabindex="-1" id="offcanvasMenuRight">
-            <div class="offcanvas-header">
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <form action="#" class="side-nav-search-form">
-                    <div class="form-group">
-                        <input type="text" class="search-field" name="search-field" placeholder="Search...">
-                        <button class="side-nav-search-btn"><i class="fas fa-search"></i></button>
-                    </div>
-                </form>
-                <div class="row ">
-                    <div class="col-lg-5 col-xl-6">
-                        <ul class="main-navigation list-unstyled">
-                            <li><a href="index-1.html">Digital Agency</a></li>
-                            <li><a href="index-2.html">Creative Agency</a></li>
-                            <li><a href="index-3.html">Personal Portfolio</a></li>
-                            <li><a href="index-4.html">Home Startup</a></li>
-                            <li><a href="index-5.html">Corporate Agency</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-7 col-xl-6">
-                        <div class="contact-info-wrap">
-                            <div class="contact-inner">
-                                <address class="address">
-                                    <span class="title">Contact Information</span>
-                                    <p>Theodore Lowe, Ap #867-859 <br> Sit Rd, Azusa New York</p>
-                                </address>
-                                <address class="address">
-                                    <span class="title">We're Available 24/7. Call Now.</span>
-                                    <a class="tel" href="tel:8884562790"><i class="fas fa-phone"></i>(888)
-                                        456-2790</a>
-                                    <a class="tel" href="tel:12125553333"><i class="fas fa-fax"></i>(121)
-                                        255-53333</a>
-                                </address>
-                            </div>
-                            <div class="contact-inner">
-                                <h5 class="title">Find us here</h5>
-                                <div class="contact-social-share">
-                                    <ul class="social-share list-unstyled">
-                                        <li><a href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="https://www.behance.net/"><i class="fab fa-behance"></i></a></li>
-                                        <li><a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Jquery Js -->

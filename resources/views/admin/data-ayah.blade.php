@@ -24,8 +24,7 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nomor Telepon Rumah</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nomor Telepon Kantor</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nomor Whatsapp</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
@@ -41,14 +40,7 @@
                     <td class="text-sm font-weight-normal">{{ $item->keluarga->ayah->nomor_telepon_rumah }}</td>
                     <td class="text-sm font-weight-normal">{{ $item->keluarga->ayah->nomor_telepon_kantor }}</td>
                     <td class="text-sm font-weight-normal">{{ $item->keluarga->ayah->no_whatsapp }}</td>
-                    <td class="text-sm font-weight-normal">{{ $item->keluarga->ayah->status }}</td>
-                    <td>
-                        @if($item->keluarga->ayah->status == "Pending")
-                        <a href="{{ url('admin/verifikasi-ayah/'.$item->keluarga->ayah->id) }}" class="btn btn-info btn-sm">Verifikasi</a>
-                        @else
-                        
-                        @endif
-                    </td>
+                    
                   </tr>
                 @endforeach
                 </tbody>

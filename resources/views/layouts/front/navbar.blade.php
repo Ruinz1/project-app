@@ -28,7 +28,7 @@
                                         <a href="{{url('/')}}">Profil</a>
                                         <ul class="axil-submenu">
                                             <li><a href="{{url('/sejarah')}}">Sejarah</a></li>
-                                            <li><a href="{{ url('/visi') }}">Visi Misi</a></li>
+                                            <li><a href="{{ url('/visi-misi') }}">Visi Misi</a></li>
                                             <li><a href="{{ url('/struktur') }}">Struktur Organisasi</a></li>
                                         </ul>
                                     </li>
@@ -43,10 +43,11 @@
                                     <li>
                                         <a href="{{'/sarana'}}">Sarana dan Prasarana</a>
                                     </li>
-                                   
-                                    
+                                    <li>
+                                        <a href="{{'/blog'}}">Blog</a>
+                                    </li>
                                     @guest
-                                    <a href="{{'/login'}}" class="axil-btn btn-fill-primary btn-large">Masuk</a>
+                                    <a href="{{'/login'}}" class="axil-btn btn-fill-primary btn-large">Pendaftaran</a>
                                     @else
                                     <li>
                                         <a href="{{ route('logout') }}"

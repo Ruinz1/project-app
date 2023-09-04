@@ -30,8 +30,6 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hobi</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kemampuan Hafalan Murotal</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Berlangganan Majalah</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -53,13 +51,6 @@
                     <td class="text-sm font-weight-normal">{{ $item->pribadi->hobi }}</td>
                     <td class="text-sm font-weight-normal">{{ $item->pribadi->hafal_murotal }}</td>
                     <td class="text-sm font-weight-normal">{{ $item->pribadi->berlangganan_majalah }}</td>
-                    <td class="text-sm font-weight-normal">{{ $item->pribadi->status }}</td>
-                    <td>
-                        @if($item->pribadi->status == "Pending")
-                        <a href="{{ url('admin/verifikasi-pribadi/'.$item->pribadi->id) }}" class="btn btn-info btn-sm">Verifikasi</a>
-                        @endif
-                        <a href="{{ url('admin/data-detail-pribadi/'.$item->id) }}" class="btn btn-success btn-sm">Lihat detail</a>
-                    </td>
                   </tr>
                 @endforeach
                 </tbody>
