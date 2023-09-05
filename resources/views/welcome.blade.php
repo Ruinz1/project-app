@@ -4,6 +4,40 @@
         <!--=====================================-->
         <!--=        Banner Area Start         =-->
         <!--=====================================-->
+
+<!-- JavaScript untuk menampilkan SweetAlert -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Check jika session 'success' ada
+        var hasSuccess = '{{ session('success') }}' !== '';
+
+        // Jika session 'success' ada, tampilkan SweetAlert
+        if (hasSuccess) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 5000 // 3 detik
+            });
+        }
+
+        // Menambahkan event click pada tombol untuk menampilkan SweetAlert
+        document.getElementById('show-swal-on-success').addEventListener('click', function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success Message',
+                text: 'This is a success message!',
+                showConfirmButton: false,
+                timer: 3000 // 3 detik
+            });
+        });
+    });
+</script>
+
+       
+       
+
         <section class="banner banner-style-1">
             <div class="container">
                 <div class="row align-items-end align-items-xl-start">
@@ -215,3 +249,5 @@
 
     <!-- Jquery Js -->
     @endsection
+    
+      

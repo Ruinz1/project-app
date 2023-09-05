@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
     <!-- Favicon -->
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
     
     <!-- Map CSS -->
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" />
@@ -97,5 +97,6 @@
 
     <!-- Site Scripts -->
     <script src="{{ asset('assets/front-app/js/app.js')}}"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </html>

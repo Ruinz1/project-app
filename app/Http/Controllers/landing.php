@@ -986,7 +986,10 @@ class landing extends Controller
             $update->id_pendanaan = $pendanaan->id;
             $update->save();
 
-            return redirect('sejarah');
+             // Flash a success message to the session
+            session()->flash('success', 'Data sudah didaftar. Silahkan cek email secara berkala 2x24 jam kalau perlu sampe mati.');
+
+            return redirect('/');
         }
 
         public function updatependanaan(Request $request, $id){
@@ -1007,9 +1010,10 @@ class landing extends Controller
                 $pendanaan->infaq =  $request->infaq;
 
             $pendanaan->update();
-
+             // Flash a success message to the session
+            session()->flash('success', 'Data sudah diupdate. Silahkan cek email secara berkala 2x24 jam kalau perlu sampe mati.');
             // Kemudian, tampilkan view "Update Data" dan kirimkan data peserta dan ID
-            return redirect('sejarah');
+            return redirect('/');
         }
 
 }

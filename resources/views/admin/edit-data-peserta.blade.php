@@ -69,7 +69,7 @@
                           </div>
                           <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                             <label class="mt-2">Agama</label>
-                            <input class="multisteps-form__input form-control" disabled value="{{ $peserta->agama }}" name="agama_peserta" type="text" placeholder="eg. Off-White"  />
+                            <input class="multisteps-form__input form-control" value="{{ $peserta->agama }}" name="agama_peserta" type="text" placeholder="eg. Off-White"  />
                         </div>
                       </div>
                       <div class="row mt-3">
@@ -150,26 +150,41 @@
                         </div>
                           <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                             <label>Pekerjaan</label>
-                            <?php 
+                                            <?php 
                                             $pekerjaan = ['Petani dan Buruh Tani','Pedagang','Nelayan','Buruh Pabrik','PNS (Pegawai Negeri Sipil)','Guru/Dosen',
                                             'Sopir dan Pengemudi','Penjahit','Karyawan Swasta','Tukang Bangunan','Karyawan Perbankan','Montir','Dokter','Pegawai Toko',
                                             'Penjual Makanan','Peternak','Pekerja Konstruksi','Perawat','Polisi dan Anggota TNI','Tidak bekerja','Lainnya']
                                             
                                             ?>
-                            @foreach($kategori as $kat)
-                            <option value="{{$kat}}" {{ $peserta->jenis_kelamin == $kat ? 'selected':'' }}>{{$kat}}</option>
-                            @endforeach
+                                            <select class="form-control" name="pekerjaan_ayah" required>
+                                            <option selected="selected">Pekerjaan</option>
+                                            @foreach($pekerjaan as $p)
+                                            <option value="{{$p}}" {{ $peserta->keluarga->ayah->pekerjaan == $p ? 'selected':'' }} >{{$p}}</option>
+                                            @endforeach
+                          </select>
                           </div>
                       </div>
                       <div class="row mt-3">
                       <div class="col-12 col-sm-6">
                           <label>Agama</label>
-                          <input class="multisteps-form__input form-control" value="{{ $peserta->keluarga->ayah->agama }}" name="agama_ayah" type="text" placeholder="Islam"  />
+                          <?php $agama = ['Islam','Katolik','Protestan','Hindu','Buddha','Konghucu'] ?>
+                                          <select class="form-control" name="agama_ayah" required>
+                                          <option selected="selected">--Pilih Agama--</option>
+                                           @foreach($agama as $a)
+                                          <option value="{{$a}}" {{ $peserta->keluarga->ayah->agama == $a ? 'selected':'' }}>{{$a}}</option>
+                                          @endforeach
+                                          </select>
                         </div>
-                          <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                            <label>Pendidikan terakhir</label>
-                            <input class="multisteps-form__input form-control" value="{{ $peserta->keluarga->ayah->pendidikan }}" name="pendidikan_ayah" type="text" placeholder="Jl. Tombolotutu"  />
-                          </div>
+                          <div class="col-12 col-sm-6">
+                                            <label>Pendidikan terakhir</label>
+                                          <?php $pendidikan = ['SD/MI','SMP/MTs','SMA/SMK/MA','D1','D2','D3','D4','S1','S2','S3'] ?>
+                                          <select class="form-control" name="pendidikan_ayah" required>
+                                          <option selected="selected">--Pilih Pendidikan--</option>
+                                           @foreach($pendidikan as $pen)
+                                          <option value="{{$pen}}" {{ $peserta->keluarga->ayah->pendidikan == $pen ? 'selected':'' }}>{{$pen}}</option>
+                                          @endforeach
+                                          </select>
+                                          </div>
                       </div>
                       <div class="row mt-3">
                       <div class="col-12 col-sm-6">
@@ -215,20 +230,43 @@
                           <input class="multisteps-form__input form-control" value="{{ $peserta->keluarga->ibu->tempat_lahir }}" name="tempat_lahir_ibu" type="text" placeholder="eg. Off-White"  />
                         </div>
                           <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                            <label>Pekerjaan/usaha</label>
-                            <input class="multisteps-form__input form-control" value="{{ $peserta->keluarga->ibu->pekerjaan }}" name="pekerjaan_ibu" type="text" placeholder="Islam"  />
-                          </div>
-                      </div>
-                      <div class="row mt-3">
-                      <div class="col-12 col-sm-6">
-                          <label>Agama</label>
-                          <input class="multisteps-form__input form-control" value="{{ $peserta->keluarga->ibu->agama }}" name="agama_ibu" type="text" placeholder="eg. Off-White"  />
-                        </div>
-                          <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                            <label>Pendidikan terakhir</label>
-                            <input class="multisteps-form__input form-control" value="{{ $peserta->keluarga->ibu->pendidikan }}" name="pendidikan_ibu" type="text" placeholder="Jl. Tombolotutu"  />
-                          </div>
-                      </div>
+                                            <label>Pekerjaan</label>
+                                            <?php 
+                                            $pekerjaan_i = ['Petani dan Buruh Tani','Pedagang','Nelayan','Buruh Pabrik','PNS (Pegawai Negeri Sipil)','Guru/Dosen',
+                                            'Sopir dan Pengemudi','Penjahit','Karyawan Swasta','Tukang Bangunan','Karyawan Perbankan','Dokter','Pegawai Toko',
+                                            'Penjual Makanan','Peternak','Perawat','Polwan','IRT','Lainnya']
+                                            
+                                            ?>
+                                            <select class="form-control" name="pekerjaan_ibu" required>
+                                            <option selected="selected">Pekerjaan</option>
+                                            @foreach($pekerjaan_i as $p)
+                                            <option value="{{$p}}" {{ $peserta->keluarga->ibu->pekerjaan == $p ? 'selected':'' }}>{{$p}}</option>
+                                            @endforeach
+                                          </select>
+                                          </div>
+                                      </div>
+                                      <div class="row mt-3">
+                                      <div class="col-12 col-sm-6">
+                                          <label>Agama</label>
+                                          <?php $agama = ['Islam','Katolik','Protestan','Hindu','Buddha','Konghucu'] ?>
+                                          <select class="form-control" name="agama_ibu" required>
+                                          <option selected="selected">--Pilih Agama--</option>
+                                           @foreach($agama as $a)
+                                          <option value="{{$a}}" {{ $peserta->keluarga->ibu->agama == $a ? 'selected':'' }}>{{$a}}</option>
+                                          @endforeach
+                                          </select>
+                                        </div>
+                                          <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                                            <label>Pendidikan terakhir</label>
+                                          <?php $pendidikan = ['SD/MI','SMP/MTs','SMA/SMK/MA','D1','D2','D3','D4','S1','S2','S3'] ?>
+                                          <select class="form-control" name="pendidikan_ibu" required>
+                                          <option selected="selected">--Pilih Pendidikan--</option>
+                                           @foreach($pendidikan as $pe)
+                                          <option value="{{$pe}}" {{ $peserta->keluarga->ibu->pendidikan == $pe ? 'selected':'' }}>{{$pe}}</option>
+                                          @endforeach
+                                          </select>
+                                          </div>
+                                      </div>
                       <div class="row mt-3">
                       <div class="col-12 col-sm-6">
                           <label>Alamat Rumah</label>
@@ -273,20 +311,43 @@
                           <input class="multisteps-form__input form-control" value="{{ $peserta->keluarga->wali->tempat_lahir }}" name="tempat_lahir_wali" type="text" placeholder="eg. Off-White"  />
                         </div>
                           <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                            <label>Pekerjaan/usaha</label>
-                            <input class="multisteps-form__input form-control" value="{{ $peserta->keluarga->wali->pekerjaan }}" name="pekerjaan_wali" type="text" placeholder="Islam"  />
-                          </div>
-                      </div>
-                      <div class="row mt-3">
-                      <div class="col-12 col-sm-6">
-                          <label>Agama</label>
-                          <input class="multisteps-form__input form-control" value="{{ $peserta->keluarga->wali->agama }}" name="agama_wali" type="text" placeholder="eg. Off-White"  />
-                        </div>
-                          <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                            <label>Pendidikan terakhir</label>
-                            <input class="multisteps-form__input form-control" value="{{ $peserta->keluarga->wali->pendidikan }}" name="pendidikan_wali" type="text" placeholder="Jl. Tombolotutu"  />
-                          </div>
-                      </div>
+                                            <label>Pekerjaan</label>
+                                            <?php 
+                                            $pekerjaan_w = ['Petani dan Buruh Tani','Pedagang','Nelayan','Buruh Pabrik','PNS (Pegawai Negeri Sipil)','Guru/Dosen',
+                                            'Sopir dan Pengemudi','Penjahit','Karyawan Swasta','Tukang Bangunan','Karyawan Perbankan','Montir','Dokter','Pegawai Toko',
+                                            'Penjual Makanan','Peternak','Pekerja Konstruksi','Perawat','Polisi dan Anggota TNI','Tidak bekerja','IRT','Lainnya']
+                                            
+                                            ?>
+                                            <select class="form-control" name="pekerjaan_wali" required>
+                                           
+                                            @foreach($pekerjaan_w as $p)
+                                            <option value="{{$p}}" {{ $peserta->keluarga->wali->pekerjaan == $p ? 'selected':'' }}>{{$p}}</option>
+                                            @endforeach
+                                          </select>
+                                          </div>
+                                      </div>
+                                      <div class="row mt-3">
+                                      <div class="col-12 col-sm-6">
+                                          <label>Agama</label>
+                                          <?php $agama = ['Islam','Katolik','Protestan','Hindu','Buddha','Konghucu'] ?>
+                                          <select class="form-control" name="agama_wali" required>
+                                         
+                                           @foreach($agama as $a)
+                                          <option value="{{$a}}" {{ $peserta->keluarga->wali->agama == $a ? 'selected':'' }}>{{$a}}</option>
+                                          @endforeach
+                                          </select>
+                                        </div>
+                                          <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                                            <label>Pendidikan terakhir</label>
+                                          <?php $pendidikan = ['SD/MI','SMP/MTs','SMA/SMK/MA','D1','D2','D3','D4','S1','S2','S3'] ?>
+                                          <select class="form-control" name="pendidikan_wali" required>
+                                         
+                                           @foreach($pendidikan as $pe)
+                                          <option value="{{$pe}}" {{ $peserta->keluarga->wali->pendidikan == $pe ? 'selected':'' }}>{{$pe}}</option>
+                                          @endforeach
+                                          </select>
+                                          </div>
+                                      </div>
                       <div class="row mt-3">
                       <div class="col-12 col-sm-6">
                           <label>Alamat Rumah</label>

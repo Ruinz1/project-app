@@ -431,12 +431,15 @@ class dashboard extends Controller
         }
 
     public function update(Request $request, $id){
+        
+        
         $this->validate($request, [
 
         // Peserta
             'nama_peserta' => 'required',
             'agama_peserta' => 'required',
             'jenis_kelamin' => 'required',
+            'usia_peserta' => 'required',
             'tempat_lahir_peserta' => 'required',
             'tanggal_lahir_peserta' => 'required',
             'nama_panggilan' => 'required',
@@ -708,6 +711,7 @@ class dashboard extends Controller
                 $peserta->nama_lengkap = $request->nama_peserta;
                 $peserta->agama = $request->agama_peserta;
                 $peserta->jenis_kelamin = $request->jenis_kelamin;
+                $peserta->usia = $request->usia_peserta;
                 $peserta->tempat_lahir = $request->tempat_lahir_peserta;
                 $peserta->tanggal_lahir = $request->tanggal_lahir_peserta;
                 $peserta->nama_panggilan = $request->nama_panggilan;
