@@ -381,7 +381,7 @@ class dashboard extends Controller
             $survei->gizi_sehat = $request->gizi_sehat;
             $survei->kontrol_pengembangan = $request->kontrol_pengembangan;
             $survei->kerja_sama = $request->kerja_sama;
-            $survei->status = "Pending";
+            
         
         $survei->save();
 
@@ -405,6 +405,7 @@ class dashboard extends Controller
             $peserta->nama_lengkap = $request->nama_peserta;
             $peserta->agama = $request->agama_peserta;
             $peserta->jenis_kelamin = $request->jenis_kelamin;
+            $peserta->usia = $request->usia_peserta;
             $peserta->tempat_lahir = $request->tempat_lahir_peserta;
             $peserta->tanggal_lahir = $request->tanggal_lahir_peserta;
             $peserta->nama_panggilan = $request->nama_panggilan;

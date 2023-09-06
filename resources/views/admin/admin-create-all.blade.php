@@ -68,7 +68,7 @@
                                           </div>
                                           <div class="col-12 col-sm-6 mt-3 mt-sm-0">
                                             <label class="mt-2">Agama</label>
-                                            <input class="multisteps-form__input form-control" name="agama_peserta" type="text" placeholder="eg. Off-White" disabled value="Islam" required />
+                                            <input class="multisteps-form__input form-control" name="agama_peserta" type="text" placeholder="eg. Off-White" value="Islam" required />
                                         </div>
                                       </div>
                                       <div class="row mt-3">
